@@ -73,6 +73,13 @@ struct gameState {
     int playedCardCount;
 };
 
+/* Refactored card effect functions */
+int card_effect_ambassador(int choice1, int choice2, int handPos, struct gameState *state);
+int card_effect_baron(int choice1, struct gameState *state);
+int card_effect_mine(int choice1, int choice2, int handPos, struct gameState *state);
+int card_effect_minion(int choice1, int choice2, int handPos, struct gameState *state);
+int card_effect_tribute(struct gameState *state);
+
 /* All functions return -1 on failure, and DO NOT CHANGE GAME STATE;
    unless specified for other return, return 0 on success */
 

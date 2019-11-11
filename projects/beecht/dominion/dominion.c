@@ -786,7 +786,8 @@ int card_effect_minion (int choice1, int choice2, int handPos, struct gameState 
         for (int i = 0; i < state->numPlayers; i++)
         {
             // *** BUG *** Condition should be ORed, not ANDed
-            if (i == player && state->handCount[i] > 4)
+            // if (i == player && state->handCount[i] > 4)
+            if (i == player || state->handCount[i] > 4)
             {
                 // *** BUG *** First parameter of discard and draw should be 'i', not 'player'
                 discard_hand(player, state);
@@ -805,7 +806,8 @@ int card_effect_ambassador (int choice1, int choice2, int handPos, struct gameSt
     int player     = whoseTurn(state);
     int card       = state->hand[player][choice1];
     // *** BUG *** First parameter should be 'card', not 'handPos'
-    int card_count = count_cards(handPos, player, state);
+    // int card_count = count_cards(handPos, player, state);
+    int card_count = count_cards(card, player, state);
 
     // Player cannot try to discard the Ambassador card being played
     // Discard more than 2 of a card or fewer than 0
@@ -854,9 +856,9 @@ int card_effect_tribute (struct gameState *state) {
         }
 
         // Look at the top card, record it, and discard it
-        revealed[i] = view_top_card(player, state);
-        remove_top_card(player, state);
-        add_to_discard(revealed[i], player, state);
+        revealed[i] = view_top_card(next, state);
+        remove_top_card(next, state);
+        add_to_discard(revealed[i], next, state);
     }
 
     // If the cards are duplicates, ignore the second one
