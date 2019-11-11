@@ -3,11 +3,10 @@
 #include<stdlib.h>
 #include<time.h>
 
-const char ALPHABET[] = "axrest()[]{} ";
+const char ALPHABET[] = "restax ()[]{}";
 
 char inputChar()
 {
-    // const char alphabet[] = "ax()[]{} ";
     return ALPHABET[rand() % 13];
 }
 
@@ -17,7 +16,7 @@ char *inputString()
     int i;
 
     for (i = 0; i < 5; i++)
-        string[i] = inputChar();
+        string[i] = ALPHABET[rand() % 4];
 
     string[i] = '\0';
 
