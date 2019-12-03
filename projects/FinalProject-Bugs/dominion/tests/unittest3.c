@@ -21,6 +21,7 @@ int main () {
 	printf("Test 3. Remodel if-statement:\n");
     int numPlayers = 2;
     int seed = 10;
+    int coin_bonus = 0;
     
 
     //set your card array
@@ -36,7 +37,7 @@ int main () {
     memcpy(&testGame, &cleanGame, sizeof(struct gameState));
     testGame.hand[0][0] = remodel;
     testGame.hand[0][1] = silver;
-    cardToBeTrashed = testGame.hand[0][1];
+    int cardToBeTrashed = testGame.hand[0][1];
     cardEffect(remodel, 1, mine, -1, &testGame, 0, &coin_bonus);
 
     //Asserts
