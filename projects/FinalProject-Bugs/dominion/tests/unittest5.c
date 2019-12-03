@@ -44,10 +44,11 @@ int main()
 	for (i = 0; i < numDiscardEstates; i++)
 		game->discard[currentPlayer][game->discardCount[currentPlayer]++] = estate;
 
-	// Call scoreFor()
+	// Prepare scores
 	int expectedScore = numHandEstates + numDeckEstates + numDiscardEstates;
 	int actualScore = scoreFor(currentPlayer, game);
 
+	// Perform test
 	soft_assert(expectedScore, actualScore);
 	
 	return 0;
