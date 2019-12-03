@@ -13,6 +13,7 @@ int main () {
 	printf("Test 7. Tribute array overrun:\n");
     int numPlayers = 2;
     int seed = 10;
+    int coin_bonus = 0;
 
     //set your card array
     int k[10] = { ambassador, council_room, feast, tribute, mine, remodel, smithy, village, baron, great_hall };
