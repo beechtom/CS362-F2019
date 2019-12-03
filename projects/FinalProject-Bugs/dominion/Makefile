@@ -14,8 +14,9 @@ EXECS = $(TESTS:$(TESTDIR)/%.$(TESTEXT)=$(EXECDIR)/%)
 unittestresults: $(EXECS)
 	@ echo "[RUN]   Running all tests . . ."
 	@ > $(OUTFILE)
-	@ for f in $(shell ls ${EXECDIR}); do $(EXECDIR)/$$f >> $(OUTFILE); done
+	@ for f in $(shell ls ${EXECDIR}); do $(EXECDIR)/$$f >> $(OUTFILE) && echo >> $(OUTFILE); done
 	@ echo "[GCOV]  Running gcov . . ."
+	@ echo >> $(OUTFILE)
 	@ gcov -b -f dominion.c >> $(OUTFILE)
 	@ echo "[END]   Completed! View $(OUTFILE) for test results."
 

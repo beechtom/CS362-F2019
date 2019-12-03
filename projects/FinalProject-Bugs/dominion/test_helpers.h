@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include "dominion.h"
 
+void title(char* title) {
+    printf("\033[36m%s\033[0m\n", title);
+}
+
 void describe(char* description) {
     printf("%s\n", description);
 }
@@ -25,6 +29,14 @@ int count_hand(int card, int player, struct gameState* state) {
     int count = 0;
     for (int i = 0; i < state->handCount[player]; i++)
         if (state->hand[player][i] == card)
+            count++;
+    return count;
+}
+
+int count_deck(int card, int player, struct gameState* state) {
+    int count = 0;
+    for (int i = 0; i < state->deckCount[player]; i++)
+        if (state->deck[player][i] == card)
             count++;
     return count;
 }
