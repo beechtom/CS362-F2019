@@ -6,7 +6,7 @@
 
 int main() {
     int cards[10] = { curse, copper, silver, gold, estate,
-                    duchy, province, feast, mine, sea_hag };
+                    duchy, province, feast, mine, treasure_map };
     struct gameState *state = newGame();
     int result;
 
@@ -15,9 +15,9 @@ int main() {
     // Initialize game state and empty three supply piles, including the first
     // and last cards
     initializeGame(2, cards, 1, state);
-    state->supplyCount[curse]   = 0;
-    state->supplyCount[copper]  = 0;
-    state->supplyCount[sea_hag] = 0;
+    state->supplyCount[curse]        = 0; 
+    state->supplyCount[copper]       = 0;
+    state->supplyCount[treasure_map] = 0;
 
     // Run the first test
     result = isGameOver(state);
@@ -29,7 +29,7 @@ int main() {
 
     // Initialize the new game state and empty two supply piles
     initializeGame(2, cards, 1, state);
-    state->supplyCount[curse] = 0;
+    state->supplyCount[curse]  = 0;
     state->supplyCount[copper] = 0;
 
     // Run the second test

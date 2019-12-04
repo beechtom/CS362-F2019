@@ -1,4 +1,6 @@
 #include "dominion.h"
+#include <stdio.h>
+#include <string.h>
 
 void myAssert(int x, int y) {
 	if (x == y) {
@@ -23,7 +25,8 @@ int main () {
     struct gameState compareGame;
     struct gameState testGame;
     initializeGame(numPlayers, k, seed, &cleanGame);
-    
+    cleanGame.numActions = 0;
+
     //********Test Reveal two treasure cards**********
     printf("\nTest: Left player reveals two treaure cards\n");
     memcpy(&testGame, &cleanGame, sizeof(struct gameState));

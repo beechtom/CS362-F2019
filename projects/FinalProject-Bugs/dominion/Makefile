@@ -1,6 +1,6 @@
 CC = gcc
 TESTEXT = c
-CFLAGS = -Wall -fpic -coverage -lm -std=c99
+CFLAGS = -fpic -coverage -lm -std=c99
 
 OUTFILE = unittestresults.out
 
@@ -14,7 +14,7 @@ EXECS = $(TESTS:$(TESTDIR)/%.$(TESTEXT)=$(EXECDIR)/%)
 unittestresults: $(EXECS)
 	@ echo "[RUN]   Running all tests . . ."
 	@ > $(OUTFILE)
-	@ for f in $(shell ls ${EXECDIR}); do $(EXECDIR)/$$f >> $(OUTFILE) && echo >> $(OUTFILE); done
+	@ for f in $(shell ls ${EXECDIR}); do $(EXECDIR)/$$f >> $(OUTFILE) 2>&1 && echo >> $(OUTFILE); done
 	@ echo "[GCOV]  Running gcov . . ."
 	@ echo >> $(OUTFILE)
 	@ gcov -b -f dominion.c >> $(OUTFILE)
