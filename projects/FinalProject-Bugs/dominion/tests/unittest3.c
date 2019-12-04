@@ -1,4 +1,7 @@
 #include "dominion.h"
+#include <stdio.h>
+#include <string.h>
+#include "dominion_helpers.h"
 
 void myAssert(int x, int y) {
 	if (x == y) {
