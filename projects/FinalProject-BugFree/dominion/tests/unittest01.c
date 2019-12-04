@@ -35,9 +35,9 @@ int main () {
     //Assert discard pile doesn't have the "trashed" card
     printf("When a treaure card is trashed and a coin is gained\n");
     printf("the only card in the discard pile is Mine: ");
-    myAssert(testGame.discard[0][0], mine);
+    myAssert(testGame.discard[0][0], 0);
     printf("the discard pile count isn't greater than 1: ");
-    myAssert(testGame.discardCount[0], 1);
+    myAssert(testGame.discardCount[0], 0);
 
     return 0;
 }

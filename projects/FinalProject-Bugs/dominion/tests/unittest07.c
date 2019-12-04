@@ -25,6 +25,7 @@ int main () {
     struct gameState compareGame;
     struct gameState testGame;
     initializeGame(numPlayers, k, seed, &cleanGame);
+    cleanGame.numActions = 0;
     
     //********Test Reveal two treasure cards**********
     printf("\nTest: Left player reveals two treaure cards\n");
